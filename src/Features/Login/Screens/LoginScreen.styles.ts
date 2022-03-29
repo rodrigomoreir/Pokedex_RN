@@ -31,7 +31,7 @@ export const StyledTextContent = styled.View`
 export const StyledLogoImg = styled.Image`
     width: 105.83px; 
     height: 105.83px; 
-    margin-bottom: 23.58; 
+    margin-bottom: 23.58px; 
 `
 
 export const StyledLogoText = styled.Text`
