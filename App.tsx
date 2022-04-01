@@ -8,11 +8,13 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <NavigationContainer>
+    // <NavigationContainer>
+    <>
       {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} /> */}
       <StatusBar barStyle={'light-content'} />
       <Routes />
-    </NavigationContainer>
+    </>
+    // </NavigationContainer>
   );
 };
 
