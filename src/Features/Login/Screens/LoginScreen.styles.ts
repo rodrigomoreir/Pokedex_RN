@@ -37,7 +37,6 @@ export const StyledLogoImg = styled.Image`
 export const StyledLogoText = styled.Text`
     font-size: 40px; 
     font-weight: 400; 
-    font-family: Montserrat; 
     font-style: normal; 
     color: #E3E3E3;
 `
