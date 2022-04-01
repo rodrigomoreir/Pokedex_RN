@@ -41,7 +41,7 @@ export const StyledSubtitle = styled.Text`
 `
 
 export const StyledSearchBarContainer = styled.View`
-    padding-horizontal: 75;
+    padding-horizontal: 75px;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
