@@ -94,21 +94,69 @@ export const StyledImageBorder = styled.View`
 `
 
 export const StyledCharacteristicsContent = styled.View`
-
+    flex-direction: row;
+    height: 63px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
 `
 
 export const StyledCharacteristicsImage = styled.Image`
-
+    width: 25px;
+    height: 25px;
+    margin-right: 14px;
+    tint-color: black;
 `
 
 export const StyledCharacteristicsText = styled.Text`
-
+    font-size: 16px;
+    font-weight: 400;
 `
 
 export const StyledDivisor = styled.View`
-
+    height: 100%;
+    border-width: 0.7px;
+    border-color: #C8C8C8;
+    margin-left: 15px;
+    margin-right: 15px;
 `
 
 export const StyledStatusContent = styled.View`
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+    height: 70px;
+`
 
+export const StyledStatusTitle = styled.Text`
+    font-size: 12px;
+    font-weight: 700;
+    color: #306DB6;
+    margin-top: 5px;
+`
+
+export const StyledRowContainer = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-horizontal: 20px;
+`
+
+export const StyledStatusTypeContainer = styled.View`
+    align-items: center;
+    justify-content: center;
+`
+
+export const StyledStatusLineContainer = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+`
+
+export const StyledStatusLine = styled.View`
+    width: 100%;
+    border-width: 1px;
+    border-color: #CBE3E4;
+    margin-vertical: 8.5px;
 `
