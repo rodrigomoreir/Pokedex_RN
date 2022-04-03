@@ -1,21 +1,17 @@
 import React from 'react'
-import { MaterialIcons } from '@expo/vector-icons';
-import { useTheme } from 'styled-components'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import HomeScreen from '../Features/Home/Screens/HomeScreen'
-import { Image, Platform, View } from 'react-native';
+import HomeStack from './homeStack.routes';
+
+import { Image } from 'react-native';
 
 import icNotifications from '../assets/icons/icNotifications.png'
 import icHome from '../assets/icons/icHome.png'
 import icMore from '../assets/icons/icMore.png'
 
-import DetailsScreen from '../Features/Details/Screens/DetailsScreen';
-
 const { Navigator, Screen } = createBottomTabNavigator();
 
-const AppRoutes = () => {
-    const theme = useTheme()
+const BottomRoutes = () => {
     return (
         <Navigator
             screenOptions={{
@@ -28,23 +24,17 @@ const AppRoutes = () => {
         >
             <Screen
                 name={'home'}
-                component={HomeScreen}
+                component={HomeStack}
                 options={{
                     tabBarItemStyle: { borderTopRightRadius: 30, flex: 1 },
                     tabBarIcon: (({ size, color }) => (
                         <Image source={icHome} width={29} height={32} style={{ tintColor: color }} />
-
-                        // <MaterialIcons
-                        //     name={'home'}
-                        //     size={size}
-                        //     color={color}
-                        // />
                     ))
                 }}
             />
             <Screen
                 name={'Cadastrar'}
-                component={HomeScreen}
+                component={HomeStack}
                 options={{
                     tabBarItemStyle: { backgroundColor: '#EB3434', borderRadius: 50, width: 58 },
                     // tabBarShowLabel: false,
@@ -61,7 +51,7 @@ const AppRoutes = () => {
             />
             <Screen
                 name={'notificações'}
-                component={HomeScreen}
+                component={HomeStack}
                 options={{
                     // tabBarInactiveTintColor: '#000000',
                     tabBarItemStyle: { borderTopLeftRadius: 30 },
@@ -75,9 +65,8 @@ const AppRoutes = () => {
                     ))
                 }}
             />
-            <Screen name="DetailsScreen" component={DetailsScreen} />
         </Navigator>
     )
 }
 
-export default AppRoutes
+export default BottomRoutes

@@ -4,7 +4,7 @@ import React from 'react'
 // import { useAuth } from '../hooks/auth'
 
 import AuthRoutes from './auth.routes'
-import AppRoutes from './app.routes'
+import BottomRoutes from './bottom.routes'
 
 const Routes = () => {
     // const { user } = useAuth()
@@ -12,7 +12,7 @@ const Routes = () => {
 
     return (
         <NavigationContainer>
-            {validation ? <AppRoutes /> : <AuthRoutes />}
+            {validation ? <BottomRoutes /> : <AuthRoutes />}
         </NavigationContainer>
     )
 }
