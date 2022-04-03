@@ -4,7 +4,6 @@ import Header from '../../../components/Header';
 
 import {
     StyledContainer,
-    StyledText,
     StyledSafeAreaView,
     StyledContent,
     StyledContentBack,
@@ -23,11 +22,20 @@ import {
     StyledStatusContent,
     StyledTextBorder,
     StyledImageBorder,
+    StyledStatusTitle,
+    StyledRowContainer,
+    StyledStatusTypeContainer,
+    StyledStatusLine,
+    StyledStatusLineContainer
 } from './DetailsScreen.styles';
 
+import squirtle from '../../../assets/images/squirtle.png'
 import logoApp from '../../../assets/icons/logoApp.png'
 import icWater from '../../../assets/icons/icWater.png'
-import squirtle from '../../../assets/images/squirtle.png'
+import icWeight from '../../../assets/icons/icWeight.png'
+import icSize from '../../../assets/icons/icSize.png'
+import icAttack from '../../../assets/icons/icAttack.png'
+
 
 const DetailsScreen = () => {
     const { goBack } = useNavigation()
@@ -53,11 +61,39 @@ const DetailsScreen = () => {
                             </StyledImageBorder>
                         </StyledTypeContent>
                         <StyledCharacteristicsContent>
-                            <StyledCharacteristicsImage />
-                            <StyledCharacteristicsText>Caracteristicas</StyledCharacteristicsText>
+                            <StyledCharacteristicsImage source={icWeight} />
+                            <StyledCharacteristicsText>9.0 kg</StyledCharacteristicsText>
                             <StyledDivisor />
+                            <StyledCharacteristicsImage source={icSize} />
+                            <StyledCharacteristicsText>0.5 m</StyledCharacteristicsText>
+                            <StyledDivisor />
+                            <StyledCharacteristicsImage source={icAttack} />
+                            <StyledCharacteristicsText>Torrent</StyledCharacteristicsText>
                         </StyledCharacteristicsContent>
                         <StyledStatusContent>
+                            <StyledStatusTitle>Base Status</StyledStatusTitle>
+                            <StyledRowContainer>
+
+                                <StyledStatusTypeContainer>
+                                    <StyledStatusTitle>HP</StyledStatusTitle>
+                                    <StyledStatusTitle>ATK</StyledStatusTitle>
+                                    <StyledStatusTitle>DEF</StyledStatusTitle>
+                                    <StyledStatusTitle>SPD</StyledStatusTitle>
+                                </StyledStatusTypeContainer>
+                                <StyledDivisor />
+                                <StyledStatusTypeContainer>
+                                    <StyledStatusTitle>044</StyledStatusTitle>
+                                    <StyledStatusTitle>048</StyledStatusTitle>
+                                    <StyledStatusTitle>065</StyledStatusTitle>
+                                    <StyledStatusTitle>043</StyledStatusTitle>
+                                </StyledStatusTypeContainer>
+                                <StyledStatusLineContainer>
+                                    <StyledStatusLine />
+                                    <StyledStatusLine />
+                                    <StyledStatusLine />
+                                    <StyledStatusLine />
+                                </StyledStatusLineContainer>
+                            </StyledRowContainer>
 
                         </StyledStatusContent>
 

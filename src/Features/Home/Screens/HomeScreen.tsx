@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import api from '../../../services/api';
 
 import {
     StyledSafeAreaView,
@@ -20,10 +21,20 @@ import logoApp from '../../../assets/icons/logoApp.png'
 import Header from '../../../components/Header';
 import SearchBar from '../../../components/SearchBar';
 import CardList from '../../../components/CardList';
-import { ScrollView } from 'react-native';
 
 const LoginScreen = () => {
-    const { navigate } = useNavigation()
+
+    const getPokemon = async () => {
+        await api.get('pokedex/2/').then(response => {
+            console.log('RESPONSE', response)
+        }).catch(error => {
+            console.log('ERROR', error)
+        })
+    }
+
+    useEffect(() => {
+        getPokemon();
+    }, [])
 
     return (
         <StyledImageBackground source={backgroundHome}>
