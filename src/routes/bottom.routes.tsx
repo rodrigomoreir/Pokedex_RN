@@ -26,7 +26,7 @@ const BottomRoutes = () => {
                 name={'home'}
                 component={HomeStack}
                 options={{
-                    tabBarItemStyle: { borderTopRightRadius: 30, flex: 1 },
+                    tabBarItemStyle: { borderTopRightRadius: 30, flex: 1, backgroundColor: 'grey' },
                     tabBarIcon: (({ size, color }) => (
                         <Image source={icHome} width={29} height={32} style={{ tintColor: color }} />
                     ))
@@ -54,7 +54,7 @@ const BottomRoutes = () => {
                 component={HomeStack}
                 options={{
                     // tabBarInactiveTintColor: '#000000',
-                    tabBarItemStyle: { borderTopLeftRadius: 30 },
+                    tabBarItemStyle: { borderTopLeftRadius: 30, backgroundColor: 'grey' },
                     tabBarIcon: (({ size, color }) => (
                         <Image source={icNotifications} width={27} height={23.73} style={{ tintColor: color }} />
                         // <MaterialIcons
