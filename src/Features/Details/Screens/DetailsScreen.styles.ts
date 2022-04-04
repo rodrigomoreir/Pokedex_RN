@@ -22,8 +22,8 @@ export const StyledContentBack = styled.View`
     background-color: #306DB6;
 `
 
-export const StyledContent = styled.View`
-    height: ${Dimensions.get('window').height / 2.2}px;
+export const StyledContent = styled.ScrollView`
+    flex: 1.5;
     background-color: white;
     border-radius: 25px;
 `
@@ -43,7 +43,7 @@ export const StyledPokeImage = styled.Image`
     position: absolute;
     width: 256px;
     height: 191px;
-    margin-top: ${Dimensions.get('window').height / 7.5}px;
+    margin-top: ${Dimensions.get('window').height / 8}px;
     align-self: center;
 `
 
@@ -124,8 +124,7 @@ export const StyledDivisor = styled.View`
 export const StyledStatusContent = styled.View`
     justify-content: center;
     align-items: center;
-    margin-top: 45px;
-    height: 70px;
+    margin-top: 30px;
 `
 
 export const StyledStatusTitle = styled.Text`
@@ -140,6 +139,7 @@ export const StyledRowContainer = styled.View`
     align-items: center;
     justify-content: center;
     padding-horizontal: 20px;
+    margin-bottom: 15px;
 `
 
 export const StyledStatusTypeContainer = styled.View`

@@ -49,6 +49,7 @@ const DetailsScreen = () => {
                         <StyledLogoImage source={logoApp} />
                     </StyledContentBack>
                     <StyledContent>
+
                         <StyledPokedexNumberContent>
                             <StyledPokedexNumber>#007</StyledPokedexNumber>
                         </StyledPokedexNumberContent>
@@ -73,7 +74,6 @@ const DetailsScreen = () => {
                         <StyledStatusContent>
                             <StyledStatusTitle>Base Status</StyledStatusTitle>
                             <StyledRowContainer>
-
                                 <StyledStatusTypeContainer>
                                     <StyledStatusTitle>HP</StyledStatusTitle>
                                     <StyledStatusTitle>ATK</StyledStatusTitle>
@@ -94,7 +94,6 @@ const DetailsScreen = () => {
                                     <StyledStatusLine />
                                 </StyledStatusLineContainer>
                             </StyledRowContainer>
-
                         </StyledStatusContent>
 
                     </StyledContent>

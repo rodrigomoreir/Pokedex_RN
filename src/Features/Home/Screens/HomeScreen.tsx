@@ -11,7 +11,9 @@ import {
     StyledLogoImg,
     StyledSubtitle,
     StyledSearchBarContainer,
-    StyledScrollView
+    StyledScrollView,
+    StyledHomeHeader,
+    StyledMasterView
 } from './HomeScreen.styles'
 
 import backgroundHome from '../../../assets/images/backgroundHome.png'
@@ -37,9 +39,10 @@ const LoginScreen = () => {
     // }, [])
 
     return (
-        <StyledImageBackground source={backgroundHome}>
-            <StyledImageBackground source={backgroundBlur}>
-                <StyledSafeAreaView>
+        <StyledMasterView>
+
+            <StyledSafeAreaView>
+                <StyledHomeHeader>
                     <Header goProfile={() => { }} />
                     <StyledTextContainer>
                         <StyledTitleContent>
@@ -51,13 +54,16 @@ const LoginScreen = () => {
                     <StyledSearchBarContainer>
                         <SearchBar placeholder='pesquise...' value='' onChangeText={() => { }} />
                     </StyledSearchBarContainer>
-                    <StyledScrollView>
-                        <CardList />
-
-                    </StyledScrollView>
-                </StyledSafeAreaView>
-            </StyledImageBackground>
-        </StyledImageBackground>
+                </StyledHomeHeader>
+                <StyledImageBackground source={backgroundHome}>
+                    <StyledImageBackground source={backgroundBlur}>
+                        <StyledScrollView>
+                            <CardList />
+                        </StyledScrollView>
+                    </StyledImageBackground>
+                </StyledImageBackground>
+            </StyledSafeAreaView>
+        </StyledMasterView>
     );
 }
 

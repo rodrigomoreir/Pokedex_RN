@@ -1,8 +1,9 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 export const StyledImageBackground = styled.ImageBackground`
     width: 100%; 
-    height: 100%;
+    height: 90%;
 `
 
 export const StyledSafeAreaView = styled.SafeAreaView`
@@ -45,9 +46,20 @@ export const StyledSearchBarContainer = styled.View`
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 14px;
 `
 
 export const StyledScrollView = styled.ScrollView`
     padding: 11px;
     padding-top: 77px;
+`
+
+export const StyledHomeHeader = styled.View`
+    /* height: ${Dimensions.get('window').height / 3.85}px; */
+    background-color: #000000;
+`
+
+export const StyledMasterView = styled.View`
+    flex: 1;
+    background-color: black;
 `
