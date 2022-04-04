@@ -24,17 +24,17 @@ import CardList from '../../../components/CardList';
 
 const LoginScreen = () => {
 
-    const getPokemon = async () => {
-        await api.get('pokedex/2/').then(response => {
-            console.log('RESPONSE', response)
-        }).catch(error => {
-            console.log('ERROR', error)
-        })
-    }
+    // const getPokemon = async () => {
+    //     await api.get('pokedex/2/').then(response => {
+    //         console.log('RESPONSE', response)
+    //     }).catch(error => {
+    //         console.log('ERROR', error)
+    //     })
+    // }
 
-    useEffect(() => {
-        getPokemon();
-    }, [])
+    // useEffect(() => {
+    //     getPokemon();
+    // }, [])
 
     return (
         <StyledImageBackground source={backgroundHome}>
