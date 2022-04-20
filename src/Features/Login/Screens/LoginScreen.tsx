@@ -28,6 +28,8 @@ import icFacebook from '../../../assets/icons/icFacebook.png'
 
 import TextField from '../../../components/TextField';
 import Button from '../../../components/Button';
+import { loginSimulate } from '../../../utils/loginSimulate';
+import BottomRoutes from '../../../routes/bottom.routes';
 
 const LoginScreen = () => {
     const { navigate } = useNavigation()

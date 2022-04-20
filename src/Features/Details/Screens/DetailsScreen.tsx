@@ -35,15 +35,18 @@ import icWater from '../../../assets/icons/icWater.png'
 import icWeight from '../../../assets/icons/icWeight.png'
 import icSize from '../../../assets/icons/icSize.png'
 import icAttack from '../../../assets/icons/icAttack.png'
+import usePokemonStore from '../../../store/pokemon/pokemonStore';
 
 
 const DetailsScreen = () => {
     const { goBack } = useNavigation()
 
+    const pokemon = usePokemonStore(state => state.pokemon)
+
     return (
         <StyledContainer>
             <StyledSafeAreaView>
-                <Header title='Pokemon' goBack={() => goBack()} favorite={() => { }} />
+                <Header title={pokemon[0].name} goBack={() => goBack()} favorite={() => { }} />
                 <StyledSuperView>
                     <StyledContentBack>
                         <StyledLogoImage source={logoApp} />

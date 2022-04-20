@@ -23,8 +23,11 @@ import logoApp from '../../../assets/icons/logoApp.png'
 import Header from '../../../components/Header';
 import SearchBar from '../../../components/SearchBar';
 import CardList from '../../../components/CardList';
+import usePokemonStore from '../../../store/pokemon/pokemonStore';
 
 const LoginScreen = () => {
+
+    const { getPokemon, pokemon } = usePokemonStore()
 
     // const getPokemon = async () => {
     //     await api.get('pokedex/2/').then(response => {
@@ -34,9 +37,10 @@ const LoginScreen = () => {
     //     })
     // }
 
-    // useEffect(() => {
-    //     getPokemon();
-    // }, [])
+    console.log(pokemon)
+    useEffect(() => {
+        getPokemon()
+    }, [])
 
     return (
         <StyledMasterView>
@@ -57,9 +61,9 @@ const LoginScreen = () => {
                 </StyledHomeHeader>
                 <StyledImageBackground source={backgroundHome}>
                     <StyledImageBackground source={backgroundBlur}>
-                        <StyledScrollView>
-                            <CardList />
-                        </StyledScrollView>
+                        {/* <StyledScrollView> */}
+                        <CardList onPressSeeMore={() => { }} />
+                        {/* </StyledScrollView> */}
                     </StyledImageBackground>
                 </StyledImageBackground>
             </StyledSafeAreaView>
