@@ -2,32 +2,34 @@ import create from "zustand";
 import { persist } from "zustand/middleware";
 import api from '../../services/api';
 
-const usePokemonStore = create(set => ({
-    pokemon: [
-        // {
-        //     pokedexNumber: 1,
-        //     name: 'Bulbasaur'
-        // },
-    ],
-    getPokemon: () => set(state => {
+interface PokemonSpeciesProps {
+    name: string
+    url: string
+}
+export interface PokemonProps {
+    entry_number: Number
+    pokemon_species: PokemonSpeciesProps
+}
 
-        api.get('pokedex/2/').then(response => {
-            // console.log('RESPONSE', response)
-            state.pokemon = [
-                ...state.pokemon,
-                {
-                    pokedexNumber: response.data.pokemon_entries.map(pokedex => pokedex.entry_number),
-                    name: response.data.pokemon_entries.map(pokedex => pokedex.pokemon_species.name)
-                }
-            ]
-            // return pokemon
-            // console.log('TEST', response.data.pokemon_entries.map((pokedex) => pokedex.pokemon_species.name))
+type Store = {
+    pokemon: PokemonProps[]
+    getPokemon: () => void
+}
+
+const usePokemonStore = create<Store>(set => ({
+    pokemon: [],
+    getPokemon: async () => {
+
+        await api.get('pokedex/2/').then(response => {
+
+            const result = response.data.pokemon_entries
+
+            set({ pokemon: result })
+
         }).catch(error => {
             console.log('ERROR', error)
         })
-
-
-    })
+    },
 }))
 
 export default usePokemonStore

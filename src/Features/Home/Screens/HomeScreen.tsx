@@ -27,20 +27,11 @@ import usePokemonStore from '../../../store/pokemon/pokemonStore';
 
 const LoginScreen = () => {
 
-    const { getPokemon, pokemon } = usePokemonStore()
+    // const { getPokemon } = usePokemonStore()
 
-    // const getPokemon = async () => {
-    //     await api.get('pokedex/2/').then(response => {
-    //         console.log('RESPONSE', response)
-    //     }).catch(error => {
-    //         console.log('ERROR', error)
-    //     })
-    // }
-
-    console.log(pokemon)
-    useEffect(() => {
-        getPokemon()
-    }, [])
+    // useEffect(() => {
+    //     getPokemon()
+    // }, [])
 
     return (
         <StyledMasterView>
