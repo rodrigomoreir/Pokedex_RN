@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { MotiScrollView } from 'moti';
+import { MotiView, View } from 'moti';
 
 import {
     StyledContainer,
@@ -9,10 +9,9 @@ import {
     StyledTabRight,
     StyledText,
     StyledImage,
-    StyledContent,
+    StyledFlatList,
     StyledButtonSeeMore,
     StyledIconSeeMore,
-    StyledScrollview,
     StyledDivisor
 } from './CardList.styles';
 
@@ -21,15 +20,14 @@ import icTicketStar from '../assets/icons/icTicketStar.png'
 import icChevronDown from '../assets/icons/icChevronDown.png'
 import icChevronUp from '../assets/icons/icChevronUp.png'
 import PokeCard from './PokeCard';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, FlatList } from 'react-native';
+import usePokemonStore from '../store/pokemon/pokemonStore';
 
-interface Props {
-    onPressSeeMore: () => void
-}
-
-const CardList = ({ onPressSeeMore }: Props) => {
+const CardList = () => {
     const { navigate } = useNavigation()
     const [seeMore, setSeeMore] = useState(false)
+    const { getPokemon, pokemon } = usePokemonStore()
+
 
     const seeMoreSeeLess = () => {
         if (!!seeMore) {
@@ -38,6 +36,10 @@ const CardList = ({ onPressSeeMore }: Props) => {
             setSeeMore(true)
         }
     }
+
+    useEffect(() => {
+        getPokemon()
+    }, [])
 
     return (
         <StyledContainer>
@@ -52,35 +54,29 @@ const CardList = ({ onPressSeeMore }: Props) => {
                 </StyledTabRight>
             </StyledHeader>
 
-            <MotiScrollView
-                bounces={false}
+            <MotiView
                 animate={{
                     height: seeMore ? Dimensions.get('window').height / 2.1 : 160
                 }}
-            // transition={{
-            //     type: 'timing',
-            //     duration: 350
-            // }}
+                transition={{
+                    type: 'timing',
+                    duration: 350
+                }}
             >
-                <StyledContent style={{}}>
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                </StyledContent>
-                <StyledContent>
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                </StyledContent>
-                <StyledContent>
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                    <PokeCard onPress={() => navigate('DetailsScreen')} />
-                </StyledContent>
-            </MotiScrollView>
+                <StyledFlatList
+                    data={pokemon}
+                    keyExtractor={item => String(item.entry_number)}
+                    numColumns={4}
+                    contentContainerStyle={{ alignItems: 'center' }}
+                    renderItem={({ item }) => (
+                        <PokeCard
+                            title={item.pokemon_species.name}
+                            pokedexNumber={item.entry_number}
+                            onPress={() => navigate('DetailsScreen')}
+                        />
+                    )}
+                />
+            </MotiView>
             <StyledDivisor />
             <StyledButtonSeeMore onPress={() => seeMoreSeeLess()}>
                 <StyledIconSeeMore source={seeMore ? icChevronUp : icChevronDown} />

@@ -44,12 +44,10 @@ export const StyledImage = styled.Image`
 
 `
 
-export const StyledContent = styled.View`
-  flex: 1;
+export const StyledFlatList = styled.FlatList`
   background-color: black;
-  flex-direction: row;
-  justify-content: space-evenly;
   padding: 8px;
+  flex-basis: 0;
 `
 
 export const StyledButtonSeeMore = styled.TouchableOpacity`
