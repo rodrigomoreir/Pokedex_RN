@@ -15,21 +15,23 @@ import icPokeball from '../assets/icons/icPokeball.png'
 import squirtle from '../assets/images/squirtle.png'
 
 interface Props {
+    title: String
+    pokedexNumber: String
     onPress: () => void
 }
 
-const PokeCard = ({ onPress }: Props) => {
+const PokeCard = ({ title, pokedexNumber, onPress }: Props) => {
     return (
         <StyledContainer onPress={onPress}>
             <StyledContent>
                 <StyledPokedexNumberContent>
-                    <StyledPokedexNumber>#007</StyledPokedexNumber>
+                    <StyledPokedexNumber>#{pokedexNumber}</StyledPokedexNumber>
                 </StyledPokedexNumberContent>
                 <StyledImage source={icPokeball} />
                 <StyledPokemonImage source={squirtle} />
             </StyledContent>
             <StyledTextContainer>
-                <StyledTitle>SQUIRTLE</StyledTitle>
+                <StyledTitle>{title}</StyledTitle>
             </StyledTextContainer>
         </StyledContainer>
     );
