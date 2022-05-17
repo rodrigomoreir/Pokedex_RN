@@ -6,7 +6,6 @@ export const StyledContainer = styled.TouchableOpacity`
     background-color: #181818;
     border-radius: 10px;
     border-width: 2px;
-    border-color: #306DB6;
     margin: 7px;
 `
 
@@ -43,7 +42,6 @@ export const StyledPokemonImage = styled.Image`
 
 export const StyledTextContainer = styled.View`
     height: 26px;
-    background-color: #306DB6;
     align-items: center;
     justify-content: center;
 `
