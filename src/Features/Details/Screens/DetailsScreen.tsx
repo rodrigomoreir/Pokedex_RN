@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Header from '../../../components/Header';
 
 import {
@@ -40,13 +40,15 @@ import usePokemonStore from '../../../store/pokemon/pokemonStore';
 
 const DetailsScreen = () => {
     const { goBack } = useNavigation()
-
-    const pokemon = usePokemonStore(state => state.pokemon)
+    const route = useRoute()
+    const { pokemon } = route.params
+    console.log('pokemon', pokemon)
+    // const pokemon = usePokemonStore(state => state.pokemon)
 
     return (
         <StyledContainer>
             <StyledSafeAreaView>
-                <Header title={pokemon[0].name} goBack={() => goBack()} favorite={() => { }} />
+                <Header title={pokemon.pokemon_species.name} goBack={() => goBack()} favorite={() => { }} />
                 <StyledSuperView>
                     <StyledContentBack>
                         <StyledLogoImage source={logoApp} />

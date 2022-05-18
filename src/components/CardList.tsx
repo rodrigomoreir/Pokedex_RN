@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { MotiView, View } from 'moti';
+import { MotiView } from 'moti';
+import { Dimensions } from 'react-native';
 
 import {
     StyledContainer,
@@ -20,14 +21,12 @@ import icTicketStar from '../assets/icons/icTicketStar.png'
 import icChevronDown from '../assets/icons/icChevronDown.png'
 import icChevronUp from '../assets/icons/icChevronUp.png'
 import PokeCard from './PokeCard';
-import { Dimensions, FlatList } from 'react-native';
 import usePokemonStore from '../store/pokemon/pokemonStore';
 
 const CardList = () => {
     const { navigate } = useNavigation()
     const [seeMore, setSeeMore] = useState(false)
-    const { getPokemon, pokemon } = usePokemonStore()
-
+    const { getPokemon, pokemon, pokemonCharacteristics } = usePokemonStore()
 
     const seeMoreSeeLess = () => {
         if (!!seeMore) {
@@ -37,9 +36,21 @@ const CardList = () => {
         }
     }
 
+    const navigateToDetails = (pokemon) => {
+        navigate('DetailsScreen', { pokemon })
+    }
+
     useEffect(() => {
         getPokemon()
     }, [])
+
+    // const pokemonUai = require('pokemon')
+    // const poketeste = pokemonUai.getName(1)
+    // console.log(poketeste)
+
+    // const test = getPokemonCharacteristics('bulbasaur')
+
+    // console.log('TEST', pokemonCharacteristics)
 
     return (
         <StyledContainer>
@@ -72,7 +83,8 @@ const CardList = () => {
                         <PokeCard
                             title={item.pokemon_species.name}
                             pokedexNumber={item.entry_number}
-                            onPress={() => navigate('DetailsScreen')}
+                            urlType={item.pokemon_species.url}
+                            onPress={() => navigateToDetails(item)}
                         />
                     )}
                 />
